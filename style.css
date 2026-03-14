@@ -3,6 +3,10 @@ body {
     overflow: hidden;
     background: #111;
     color: #fff;
+    box-sizing: border-box;
+    border: 4px solid #fff;
+    width: 100vw;
+    height: 100vh;
 }
 
 #player {

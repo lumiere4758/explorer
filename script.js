@@ -34,6 +34,16 @@ function update_player() {
     if (keys["s"]) y += speed
     if (keys["a"]) x -= speed
     if (keys["d"]) x += speed
+
+    const playerSize = 80
+    const maxX = window.innerWidth - playerSize
+    const maxY = window.innerHeight - playerSize
+    if (x < 0) x = 0
+    if (y < 0) y = 0
+    if (x > maxX) x = maxX
+    if (y > maxY) y = maxY
+
+
     player.style.left = x + "px"
     player.style.top = y + "px"
 
