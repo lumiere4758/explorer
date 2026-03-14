@@ -9,6 +9,16 @@ body {
     height: 100vh;
 }
 
+h1 {
+    align-self: center;
+    text-align: center;
+}
+
+p {
+    align-self: center;
+    text-align: center;
+}
+
 #player {
     position: absolute;
     width: 80px;
