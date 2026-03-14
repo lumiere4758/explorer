@@ -6,9 +6,28 @@ const speed = 5
 
 const keys = {}
 
+// imma make a score system that when user hits an image a point is added
+
+let score = 0;
+const scoreDisplay = document.getElementById("score")
+
 document.addEventListener("keydown", (e) => { keys[e.key.toLowerCase()] = true })
 
 document.addEventListener("keyup", (e) => { keys[e.key.toLowerCase()] = false })
+
+function getRect(el) {
+    return el.getBoundingClientRect()
+}
+
+function isColliding(rectA, rectB) {
+    return (
+        rectA.left < rectB.right &&
+        rectA.right > rectB.left &&
+        rectA.top < rectB.bottom &&
+        rectA.bottom > rectB.top
+    )
+}
+
 
 function update_player() {
     if (keys["w"]) y -= speed
@@ -17,6 +36,21 @@ function update_player() {
     if (keys["d"]) x += speed
     player.style.left = x + "px"
     player.style.top = y + "px"
+
+    const playerRect = getRect(player)
+    const randomImgs = document.querySelectorAll(".random-img")
+
+    randomImgs.forEach(img => {
+        const imgRect = getRect(img)
+        if (isColliding(playerRect, imgRect)) {
+            img.remove()
+            score += 1
+            scoreDisplay.textContent = score
+        }
+    }
+
+    )
+
     requestAnimationFrame(update_player)
 }
 
