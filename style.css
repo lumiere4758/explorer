@@ -11,3 +11,16 @@ body {
     left: 200px;
     top: 200px;
 }
+
+#stuff-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.random-img {
+    position: absolute;
+    width: 60px;
+    height: auto;
+    border-radius: 50%;
+}
